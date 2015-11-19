@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 import json
@@ -28,7 +28,8 @@ def get_request(date, method='GET'):
 	consumer = oauth2.Consumer(key=get_token_data()[0], 
 							secret=get_token_data()[1])
 	client = oauth2.Client(consumer)
-	resp, content = client.request((search_tweets_url(get_phrase()) + date), method)
+	resp, content = client.request(
+					(search_tweets_url(get_phrase()) + date), method)
 	return content
 
 
@@ -104,7 +105,7 @@ def sort_data(sort_by=1):
 	values = values[0:3]
 	sorted_list = [(x, y) for x in values for y in sorted_dict if sorted_dict[y] == x]
 	return sorted_list
-
-print sort_data(3)
-# show_data()
-# print colect_users_data_for_last_7_days(), len(colect_users_data_for_last_7_days())
+if __name__ == '__main__':
+	print sort_data(3)
+	# show_data()
+	# print colect_users_data_for_last_7_days(), len(colect_users_data_for_last_7_days())
